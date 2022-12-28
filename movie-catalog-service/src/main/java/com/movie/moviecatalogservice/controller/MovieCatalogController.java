@@ -29,13 +29,16 @@ public class MovieCatalogController {
                 new Rating("567",5)
         );
         return ratings.stream().map(rating -> {
-//            Movie movie = restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), Movie.class);
-            Movie movie = webClientBuilder.build()
+            Movie movie = restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), Movie.class);
+//            using web client builder
+/*            Movie movie = webClientBuilder.build()
                     .get()
                     .uri("http://localhost:8082/movies/"+rating.getMovieId())
                     .retrieve()
                     .bodyToMono(Movie.class) // mono is kind of a promise
                     .block();
+*/
+
             return new CatalogItem(movie.getName(),"This is the description",rating.getRating());
         }).collect(Collectors.toList());
         //for each movie id call movie info service and get details
