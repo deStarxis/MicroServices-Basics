@@ -17,6 +17,7 @@ public class RatingsController {
 
     @GetMapping("/users/{userId}")
     public List<Rating> getUserRatings(@PathVariable String userId){
+//        returning the user ratings
         List<Rating> ratings = Arrays.asList(
                 new Rating("123",4),
                 new Rating("567",5)
