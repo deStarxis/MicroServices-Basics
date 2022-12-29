@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.*;
 public class MovieController {
     @GetMapping("/{movieId}")
     public Movie getMovieInfo(@PathVariable String movieId){
-        return new Movie(movieId,"Test Movie");
+        return new Movie(movieId,"A new Movie");
     }
 }
