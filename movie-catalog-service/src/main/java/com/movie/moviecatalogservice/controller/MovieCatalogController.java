@@ -28,6 +28,7 @@ public class MovieCatalogController {
                 new Rating("123",4),
                 new Rating("567",5)
         );
+//        using rest template
         return ratings.stream().map(rating -> {
             Movie movie = restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), Movie.class);
 //            using web client builder
