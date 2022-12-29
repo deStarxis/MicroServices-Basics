@@ -12,6 +12,7 @@ import java.util.List;
 public class RatingsController {
     @GetMapping("/{movieId}")
     public Rating getMovieRating(@PathVariable String movieId){
+        // get a rating for movie
         return new Rating(movieId,5);
     }
 
