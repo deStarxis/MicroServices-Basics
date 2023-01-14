@@ -1,6 +1,7 @@
 package com.movie.ratingdataservice.controller;
 
 import com.movie.ratingdataservice.entity.Rating;
+import com.movie.ratingdataservice.entity.UserRating;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -17,12 +18,14 @@ public class RatingsController {
     }
 
     @GetMapping("/users/{userId}")
-    public List<Rating> getUserRatings(@PathVariable String userId){
+    public UserRating getUserRatings(@PathVariable String userId){
 //        returning the user ratings
         List<Rating> ratings = Arrays.asList(
                 new Rating("123",4),
                 new Rating("567",5)
         );
-        return ratings;
+        UserRating  userRating = new UserRating();
+        userRating.setRatings(ratings);
+        return userRating;
     }
 }

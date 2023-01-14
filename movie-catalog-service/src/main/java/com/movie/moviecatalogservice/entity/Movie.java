@@ -5,7 +5,7 @@ public class Movie {
     private String name;
 
     public Movie(){
-
+        // for handling the data retrieved from the another API
     }
     public Movie(String movieId, String name) {
         this.movieId = movieId;
