@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class MovieInfo {
     @Autowired
     private RestTemplate restTemplate;
-    @HystrixCommand(fallbackMethod = "getFallbackCatalogItem")
+    @HystrixCommand(fallbackMethod = "getFallbackCatalogItem") // we add circuit breaker parameters over here
     public CatalogItem getCatalogItem(Rating rating) {
         Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class); // 2
         return new CatalogItem(movie.getName(), "This is the description", rating.getRating());
